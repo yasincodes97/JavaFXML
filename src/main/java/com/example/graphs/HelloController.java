@@ -2,58 +2,51 @@ package com.example.graphs;
 
 import javafx.fxml.FXML;
 import javafx.animation.AnimationTimer;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+
 public class HelloController {  //connection to the fxml file
-    public HelloController() {
-        Playground playground1 = new Playground("Test");
-    }
-    @FXML
-    public Label scoreLabel;
 
-    @FXML
+        @FXML
         private AnchorPane gamePane;    //container in the FXML layout
-
         private Playground playground;
-        public void initialize() {  //is called when game is initialized
-            playground = new Playground("Yasin");
+
+        public void initialize() {  //is called automatically when fxml file is loaded
+
+            playground = new Playground();
+            System.out.println("Playground created");
             gamePane.getChildren().add(playground);
 
             startGame();
         }
+
         private void startGame() {
-            AnimationTimer timer = new AnimationTimer() {   //anonymous class
-                @Override   //creates a timer that is called in each frame
-                public void handle(long now) {
+            AnimationTimer timer = new AnimationTimer() {   //anonymous class which extends the AnimationTimer class
+                @Override
+                public void handle(long now) {  //creates a timer that is called in each frame, works as a loop
                     playground.update();
                 }
             };
-            timer.start();
+            timer.start();  //starts the timer
         }
-        @FXML
+//DOPPELT MIT SNAKE MOVE METHOD !!
         public void onKeyPressed(KeyEvent event) {  //controlling user inputs
             switch (event.getCode()) {  //enhanced switch statement
-                case UP -> {
+                case UP ->
                     playground.getSnake().move(0, -20);
-                    break;
-                }
-                case DOWN -> {
+
+                case DOWN ->
                     playground.getSnake().move(0, 20);
-                    break;
-                }
-                case LEFT -> {
+
+                case LEFT ->
                     playground.getSnake().move(-20, 0);
-                    break;
-                }
-                case RIGHT -> {
+
+                case RIGHT ->
                     playground.getSnake().move(20, 0);
-                    break;
-                }
-                default -> {break;}
+
+                default -> {}
             }
 
         }
-
 
 }

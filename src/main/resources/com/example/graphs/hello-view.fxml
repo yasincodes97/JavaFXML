@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.Label?>
 
 <AnchorPane fx:controller="com.example.graphs.HelloController"
             xmlns:fx="http://javafx.com/fxml"
             prefHeight="400" prefWidth="600"
             onKeyPressed="#onKeyPressed">
 
-    <AnchorPane fx:id="gamePane" layoutX="0" layoutY="0" prefHeight="400" prefWidth="600"/>
-    <Label fx:id="scoreLabel" layoutX="10" layoutY="10" text="Score: 0"/>
-
+    <AnchorPane fx:id="gamePane" prefHeight="400" prefWidth="600"/>
 
 </AnchorPane>

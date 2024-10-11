@@ -11,5 +11,4 @@
     <AnchorPane fx:id="gamePane" layoutX="0" layoutY="0" prefHeight="400" prefWidth="600"/>
     <Label fx:id="scoreLabel" layoutX="10" layoutY="10" text="Score: 0"/>
 
-
 </AnchorPane>
