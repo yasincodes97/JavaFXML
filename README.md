@@ -1,9 +1,9 @@
-# Snake Game
+# Mond3D
 
-Ein einfaches 2D-Snake-Spiel, entwickelt mit JavaFX.
-Das Ziel des Spiels ist es, die Schlange wachsen zu lassen, indem man das Essen frisst, während man versucht, nicht mit dem eigenen Körper zu kollidieren.
+**Mond3D** ist ein OpenGL C++ - Projekt, das eine 3D-Darstellung des Mondes unter Verwendung von OpenGL und Shadern generiert. Der Benutzer kann den Mond in Echtzeit drehen, zoomen und verschiedene Transformationen anwenden. 
 
 ## Inhaltsverzeichnis
+
 - Autor
 - Features
 - Screenshots
@@ -14,43 +14,58 @@ Das Ziel des Spiels ist es, die Schlange wachsen zu lassen, indem man das Essen 
 - Kontakt
 - Credits
 - Verwendung
+- Fehlerbehebung
 
 ## Autor
+
 - **Yasin** - [GitHub-Profil](https://github.com/yasincodes97)
 
 ## Features
 
-- Steuerung der Schlange mit den Pfeiltasten
-- Kollisionsprüfung mit dem Körper
-- Zählung des Scores
-- Möglichkeit, das Spiel zu beenden
+- **3D-Rotation**: Der Mond kann mithilfe den Pfeiltasten `rechts`und `links` um die eigene Achse rotiert werden.
+- **Texturen und Beleuchtung**: Texturen und Beleuchtung verbessern das Aussehen des Mondes.
+- **Zoomen**: Die Kamera lässt sich in verschiedenen Winkeln zum Objekt positionieren mit den Pfeiltasten `hoch` und `runter`.
+- **Transformationen**: Der Mond kann auf der X- und Y-Achse gedreht und geneigt werden mit den Tasten `x` und `y`.
+- **Auto-Run**: Mit der Taste `r` beginnt der Mond sich automatisch zu drehen.
 
-## Screenshot
+## Screenshots
 
-![Snake Game Screenshot - Code](images/pic1.png)
-![Snake Game Screenshot - Snake](images/pic2.png)
+![Mond3D - Picture1](resources/pic1.jpg)
+![Mond3D - Picture1](resources/pic2.jpg)
 
 ## Voraussetzungen
 
-- JDK 11 oder höher
-- Maven (wird zur Verwaltung von Abhängigkeiten und zum Bauen des Projekts benötigt)
+- **C++ Compiler**:   Unterstützung für C++11 oder höher
+- **`OpenGL`**:       Version 3.3 oder höher
+- **GLFW**:           3.3 oder höher
+- **GLEW**:           2.1 oder höher
+- **GLM**:            Mathe-Bibliothek für Vektoren und Matrizen
+- **`CMake`**:        Für die Erstellung des Projekts
 
 ## Abhängigkeiten
 
-Die Abhängigkeiten werden in der `pom.xml`- Datei verwaltet. Stelle sicher, dass Maven installiert ist, um die Abhängigkeiten automatisch zu verwalten.
+- **`OpenGL`**
+- **GLFW**
+- **GLAD**
+- **GLM**
+- **`CMake`**
 
 ## Projektstruktur
 
-- **`App.java`**: Hauptklasse, die die JavaFX-Anwendung startet.
-- **`Controller.java`**: Enthält die Logik des Spiels, einschließlich der Bewegungen der Schlange und der Kollisionserkennung.
-- **`module-info.java`**: Enthält die Moduldefinition und Abhängigkeiten.
+- **`main.cpp`**:                            Hauptprogramm
+- **`Playground.hpp`**:                      Header File der Hauptklasse für das Spiel- und Anzeigelogik
+- **`Playground.cpp`**:                      Implementierung der Spiel- und Anzeigelogik
+- **`RenderObject.hpp`**:                    Header File zur Darstellung von 3D Objekten im 3D Raum
+- **`RenderObject.cpp`**:                    Implementierung der Render-Logik
+- **`SimpleFragmentShader.fragmentshader`**: Fragment-Shader-Datei
+- **`SimpleVertexShader.vertexshader`**:     Vertex-Shader-Datei
 
 ## Lizenz
 
-The Unlicense.
-Beiträge sind willkommen!
+Das Projekt ist Open-Source und kann ohne Lizenzierung verwendet und angepasst werden.
 
 ## Kontakt
+
 Fühle dich frei, Anpassungen oder Anregungen vorzunehmen.
 Bei Fragen gerne mich kontaktieren.
 
@@ -58,16 +73,37 @@ Bei Fragen gerne mich kontaktieren.
 
 Ich möchte den folgenden Ressourcen danken, die mir bei der Entwicklung dieses Projekts geholfen haben:
 
-- [JavaFX-Tutorial von Oracle](https://openjfx.io) – Einführung und grundlegende Informationen zu JavaFX.
-- [Stack Overflow Thread](https://stackoverflow.com/questions/68125201/stackoverflowerror-java-fx) – für Hilfe bei JavaFX-Syntaxfragen.
+- **GLFW** und **GLEW** für Fensterverwaltung und OpenGL-Loader
+- **GLM** für die Mathe-Bibliothek
+- **OpenGL Tutorials**: [opengl-tutorial](https://www.opengl-tutorial.org/)
+    - [opengl-tutorial](https://www.youtube.com/watch?v=bgvPAI2Cp2s)
+    - [opengl-tutorial](https://www.youtube.com/watch?v=EUFUQkbC4Gk)
+    - [resources](https://sketchfab.com)
+    - [resources](https://github.com/1kar/OpenGL-SolarSystem)
 
 ## Verwendung
 
-Um das Projekt auf deinem lokalen System auszuführen, klone das Repository mit folgendem Befehl:
+1. **Installation**
+   ```bash
+   git clone <https://github.com/yasincodes97/Moon3D.git>
+   cd Moon3D
+   mkdir build
+   cd build
+   cmake ..
+   make
+   ```
 
-```bash
-- git clone <https://github.com/yasincodes97/Snake2D.git>
-- cd Snake2D
-- öffne die IDE deiner Wahl
-- importiere das Project
-- App.java ausführen
+2. **Ausführung**:
+   ```bash
+   ./Moon3D
+   ```
+
+3. **Alternative**
+`Moon3D/playground/playground.exe` ausführen
+
+## Fehlerbehebung
+
+- **Problem beim Starten**: Stelle sicher, dass OpenGL 3.3+ auf deinem System unterstützt wird. Einige ältere GPUs sind nicht kompatibel.
+- **Shader-Fehler**: Überprüfe, ob die Shader-Dateien (SimpleVertexShader.vertexshader, SimpleFragmentShader.fragmentshader) im `resources/`-Ordner verfügbar sind und korrekt geladen werden.
+- **Kompilierungsfehler**: Prüfe, ob alle Bibliotheken korrekt installiert sind und die `CMakeLists.txt` angepasst ist.
+- `Alternativ` einfach die playground.exe File im Moon3D/playground starten.
