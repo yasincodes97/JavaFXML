@@ -75,7 +75,8 @@ Ich möchte den folgenden Ressourcen danken, die mir bei der Entwicklung dieses 
 
 - **GLFW** und **GLEW** für Fensterverwaltung und OpenGL-Loader
 - **GLM** für die Mathe-Bibliothek
-- **OpenGL Tutorials**: [opengl-tutorial](https://www.opengl-tutorial.org/)
+- **OpenGL Tutorials**: 
+    - [opengl-tutorial](https://www.opengl-tutorial.org/)
     - [opengl-tutorial](https://www.youtube.com/watch?v=bgvPAI2Cp2s)
     - [opengl-tutorial](https://www.youtube.com/watch?v=EUFUQkbC4Gk)
     - [resources](https://sketchfab.com)
